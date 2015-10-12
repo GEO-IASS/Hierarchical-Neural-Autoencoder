@@ -19,7 +19,7 @@ function [accumX, uniqIndices] = aggregateMatrix(X, indices)
     if numEmbGrads==1
         accumX = X;
     else
-        sparseMatrix = zeros(numEmbGrads, numUniqIndices,'double', 'gpuArray');
+        sparseMatrix = zeros(numEmbGrads, numUniqIndices,'double');
         sparseIndices = sub2ind([numEmbGrads, numUniqIndices], 1:numEmbGrads, J'); 
         sparseMatrix(sparseIndices) = ones(numEmbGrads, 1);
         accumX = X*sparseMatrix;
